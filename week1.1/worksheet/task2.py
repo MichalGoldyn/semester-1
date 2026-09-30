@@ -18,3 +18,19 @@ print(f"Welcome to LeedsBank's savings calculator {name}!")
 # Calculate the total amount of money including interest (0.8% of the final annual amount) they will have saved in a year.
 # print this out in the format £X.XX (to two decimal places).
 
+from decimal import Decimal
+try:
+    monthlySavings = float(input())
+    annualSavings = monthlySavings * 12
+    finalSavedAmount = annualSavings * (1 + 0.008)
+    precisionAmount = Decimal(str(finalSavedAmount))
+    finalAmount = precisionAmount.quantize(Decimal("0.01"))
+
+    print(round(annualSavings))
+    print("£" + str(finalAmount))
+
+except:
+    print("Invalid amount")
+
+
+#### I didn't have this template originally so man it took me a bit to realise the autograder was inputing a name before inputing actual values into the calc
