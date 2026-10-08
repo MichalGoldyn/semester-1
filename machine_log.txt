@@ -1,0 +1,8 @@
+
+
+
+2026-10-08 16:18:10.141067
+
+Temp is low, no action is needed
+Pressure is low, and is operating normally
+Machine is running normally
