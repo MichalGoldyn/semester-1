@@ -16,3 +16,39 @@
 #  Print `Invalid width` if the widths are different
 #  Print `Invalid height` if the heights are different
 #  Print `Invalid pixel values` if any pixel values is less than 0 and greater than the maximum gray value
+import sys
+
+with open("week1.3/session2/task4/images/invalid_pixels.pgm", "r") as img:
+# Read the file content
+    imageInfo = [x.rstrip("\n") for x in img]
+    dim = imageInfo[1].split()
+    width = int(dim[0])
+    height = int(dim[1])
+    maxGInfo = int(imageInfo[2])
+    actImg = [x.replace(" ", "") for x in imageInfo[3: ]]
+    imgWidth = len(actImg[0])
+    imgHeight = len(actImg)
+
+    print(actImg)
+
+    if imgWidth != width:
+        print("Invalid width")
+        sys.exit()
+    elif imgHeight != height:
+        print("Invalid Height")
+        sys.exit()
+
+    pxlCheck = [x.split() for x in imageInfo[3:]]
+    invalidGS = False
+    for i in pxlCheck:
+        for y in i:
+            if int(y) < 0 or int(y) > maxGInfo:
+                invalidGS = True
+                break
+        if invalidGS == True:
+            break
+
+    if imgWidth == width and imgHeight == height and invalidGS == False:
+        print("Valid Image")
+    elif invalidGS == True:
+        print("Invalid pixel values")
