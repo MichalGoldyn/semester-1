@@ -16,7 +16,7 @@ def readPGM( filename ):
     width = int(data[0][0]) # store the data - compare to the text in the file
     height = int(data[0][1])
     max_gray = int(data[1][0])
-    pixels = [[int(data[2+i][j]) for j in range(width)] for i in range(height)] # nested list comprehension for pixel array
+    pixels = [[int(data[2+i][j]) for j in range(len(data[2+i]))] for i in range(len(data)-2)] # nested list comprehension for pixel array
     
     return width,height,max_gray,pixels   # tuple of PGM data
     
@@ -28,11 +28,19 @@ def writePGM( filename, image ):
     '''
     width,height,max_gray,pixels = image  # unpack the tuple
 
+    with open(filename, "a") as f:
     # open a file for writing
     # write the data in PGM format
     # don't forget the PGM code "P2"
-
-    return
+        f.write("P2\n")
+        f.write(f"{width} {height}\n")
+        f.write(f"{max_gray}\n")
+        for line in pixels:
+            tmp = ""
+            for ch in line:
+                tmp = tmp + str(ch) + " "
+                
+            f.write(f"{tmp}\n")
 
 def invertPGM( image ):
     '''
@@ -43,16 +51,22 @@ def invertPGM( image ):
     width,height,max_gray,pixels = image  # unpack the tuple
 
     # your code
-    # create a new pixel array of inverted data 
-    inverted = []  # you can use a similar nested comprehension to the readPGM() function
-    
+    # create a new pixel array of inverted data
+    inverted = [[max_gray - pixels[y][x] for x in range(width)] for y in range(height)]  # you can use a similar nested comprehension to the readPGM() function
     return width,height,max_gray,inverted
 
 # code to test the PGM functions
 
-image = readPGM("images/feep.pgm")
+#Read PGM Test
+#image = readPGM("week1.4/session2/tasks/task4/images/feep.pgm")
+#print(f"Image with width {image[0]} and height {image[1]}")
+#print(f"{image[3]}")
 
-print(f"Image with width {image[0]} and height {image[1]}")
-print(f"{image[3]}")
 
-# write further code to test your own functions
+#Write PGM Test
+#file = "week1.4/session2/tasks/task4/newPgm.pgm"
+#writePGM(file, image)
+
+
+#invert PGM Test
+#writePGM(file, invertPGM(image))

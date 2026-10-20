@@ -18,6 +18,23 @@ def valid_char_in_string(popList, charSet):
     a Boolean True. Examples of valid charSet are ['0', '1'], ['-', '*'].
     """
 
+    if isinstance(charSet, list) != True:
+        return(False)
+    total = 0
+    totald = 0
+    for s in popList:
+        for c in s:
+            total+=1
+            for ch in charSet:
+                if ch in c:
+                    totald +=1
+
+    if total != totald:
+        return(False)
+
+
+    return(True)
+
 # test data
 
 plist1 = ['00000', '00001', '00010', '00011', '00100']
