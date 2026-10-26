@@ -19,15 +19,18 @@ class Rectangle:
     # (See README.md for details of what they should do)
 
     def is_square(self):
+         """Checks for if dimensions object is a square"""
          if self.width == self.height:
               return True
          else:
               return False
 
     def area(self):
+         """Returns area of object"""
          tmp = self.width * self.height
          return tmp
 
     def perimiter(self):
+         """returns the perimiter of the object"""
          tmp = 2*self.width+2*self.height
          return tmp
