@@ -1,7 +1,9 @@
 # A bad class implementation
 
 # What does the runtime error mean?
+#More arguments given than the class takes
 # How do we fix the code?
+
 
 class Point:
     """
