@@ -10,16 +10,17 @@ class Person:
     # Write a constructor here to create and initialize name and
     # birth fields (see README.md for further details)
 
-    def __init__(self, aName, aBirth):
-        self.name = aName
-        self.dob = aBirth
+    def __init__(self, Name, Birth):
+        """Creates an object of Person"""
+        self.name = Name
+        self.birth = Birth
         if isinstance(self.name, str) != True:
             raise TypeError("name Should be a string")
         else:
-            if len(aName) == 0:
+            if len(self.name) == 0:
                 raise ValueError("Name has to be of a length larger than 0")
 
-        if isinstance(aBirth, date) != True:
+        if isinstance(self.birth, date) != True:
             raise TypeError("DOB should be of type date")
 
     # Implement methods initials() and is_birthday() here
@@ -31,13 +32,16 @@ class Person:
         tmp2 = ""
         for i in tmp:
          tmp2 = tmp2 + i[0]
-        return tmp2
+        return tmp2.upper()
 
     def is_birthday(self):
         """Return if current day is birthday"""
         current = datetime.now()
-        tmp = self.dob
+        tmp = self.birth
         if tmp.day == current.day and tmp.month == current.month :
             return True
         else:
             return False
+
+
+

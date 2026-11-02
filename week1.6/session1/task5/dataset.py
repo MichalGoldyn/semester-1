@@ -11,7 +11,6 @@ class QuakeDatasetError(Exception):
     An exception type for errors involving QuakeDataset.
     """
 
-
 class QuakeDataset:
     """
     An earthquake dataset obtained from a USGS data feed.
@@ -36,7 +35,7 @@ class QuakeDataset:
         # Write code here to replace existing data with new earthquake data.
         # Use the value returned by the feed's reader() method as the
         # subject of a for loop.
-
+        self.data = [x for x in self.feed.reader()]
         # Keep in mind that the items obtained by this for loop will be
         # dictionaries. You will need to extract the required values from
         # each dictionary and convert them into the required types before
@@ -91,3 +90,5 @@ class QuakeDataset:
         """
         # Write code here that finds and returns the strongest quake
         # (i.e., the one with the largest magnitude)
+
+

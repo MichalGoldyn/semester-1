@@ -6,15 +6,14 @@ class Rectangle:
     """
 
     def __init__(self, aWidth, aHeight):
-            """
-                    Creates a Rectangle, given values for width and height.
-                    """
+            """Creates a Rectangle, given values for width and height."""
             self.width = aWidth
             self.height = aHeight
             if isinstance(aWidth, int) != True or isinstance(aHeight, int) != True:
                 raise TypeError("Dimensions should be integers")
             elif aWidth <= 0 or aHeight <= 0:
                 raise ValueError("Dimentsions should be larger than or equal to 0")
+            
     # Implement methods is_square(), area() & perimeter() here
     # (See README.md for details of what they should do)
 
@@ -30,7 +29,7 @@ class Rectangle:
          tmp = self.width * self.height
          return tmp
 
-    def perimiter(self):
+    def perimeter(self):
          """returns the perimiter of the object"""
          tmp = 2*self.width+2*self.height
          return tmp

@@ -1,7 +1,7 @@
 # Week 1.6, Session 1: Task 5
 
 import csv
-from urllib.request import urlopen
+from urllib import request
 
 VALID_LEVELS = {"all", "1.0", "2.5", "4.5", "significant"}
 VALID_PERIODS = {"hour", "day", "week", "month"}
@@ -41,6 +41,6 @@ class QuakeFeed:
         """
         Returns a DictReader that can be used to access data from this feed.
         """
-        with urlopen(self.url) as source:
+        with request.urlopen(self.url) as source:
             lines = [line.decode() for line in source]
         return csv.DictReader(lines)
