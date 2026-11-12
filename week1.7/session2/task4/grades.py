@@ -37,7 +37,7 @@ def grade(mark):
     """
     if 0 <= mark < 40:
         return "Fail"
-    elif 40 <= mark <= 70:
+    elif 40 <= mark < 70:
         return "Pass"
     elif 70 <= mark <= 100:
         return "Distinction"
@@ -52,5 +52,5 @@ if __name__ == "__main__":
     marks = read_marks(sys.argv[1])
 
     for student, mark in marks.items():
-        student_grade = grade(mark)
+        student_grade = grade(int(mark))
         print(f"{student}: {student_grade}")

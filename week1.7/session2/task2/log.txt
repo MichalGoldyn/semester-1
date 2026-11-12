@@ -1,0 +1,3 @@
+INFO:root:calculate_average(): started
+INFO:root:Asigned totol_score and total_assignments
+INFO:root:Calculated average

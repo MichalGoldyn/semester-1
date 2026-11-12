@@ -41,12 +41,17 @@ class Shape:
 # Make sure that it inherits properly from Shape!
 
 class Circle(Shape):
+
+    """Class to create a circle object"""
+
     def __init__(self,radius, position, colour = "red"):
+        """Creates of a circle object"""
         super().__init__(position, colour)
         self.set_radius(radius)
 
 
     def set_radius(self, radius):
+        """Sets the radius of a circle object to given paramter"""
         if not isinstance(radius, (int, float)):
             raise TypeError("Radius needs to be int or float")
         elif radius <= 0:
@@ -55,13 +60,16 @@ class Circle(Shape):
         self.radius = radius
 
     def __str__(self):
+        """Changes what string is outputted when the circle object is printed"""
         return (f"{self.colour} circle, {self.radius}, at {self.position}")
 
     def area(self):
+        """Calculates area of circle"""
         tmp = round(math.pi * (self.radius)**2, 3)
         return tmp
 
     def perimiter(self):
+        """Calculates the perimiter of a circle"""
         tmp = round(math.pi * self.radius * 2, 3)
         return tmp
 

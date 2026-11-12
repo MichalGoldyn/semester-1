@@ -12,14 +12,16 @@
 import point
 import geometry
 
+#Data inputs for shape to be created
 x = float(input("x: "))
 y = float(input("y: "))
 r = float(input("radius: "))
 
-cirPos = point.Point(x, y)
+cirPos = point.Point(x, y) #Creates the point position where the circles orgin is
 
-cir = geometry.circle(r, cirPos)
+cir = geometry.circle(r, cirPos) # Creates the circle object
 
+#Outputs details about the circle object
 print(cir.area())
 print(cir.perimiter())
 
