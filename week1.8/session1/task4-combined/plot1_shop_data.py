@@ -10,7 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # reading data & converting date into a datetime
-shop_data = pd.read_csv("shop_sales_data_one_month.csv")
+shop_data = pd.read_csv("week1.8/session1/task4-combined/shop_sales_data_one_month.csv")
 shop_data['Date'] = pd.to_datetime(shop_data['Date'])
 
 # Step 1: check that the data looks sensible - you should do this often!:
@@ -63,5 +63,9 @@ plt.show()
 
 # Create a pie chart to show sales per product
 
+dataByProduct = shop_data.groupby("Product")
+totalSalesPerProduct = dataByProduct["Units_Sold"].sum(numeric_only=True)
 
+totalSalesPerProduct.plot(kind="pie")
+plt.show()
 
